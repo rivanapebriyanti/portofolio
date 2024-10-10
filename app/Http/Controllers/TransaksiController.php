@@ -48,14 +48,18 @@ class TransaksiController extends Controller
             'note' => $request->note,
             'total' => $total 
         ]);
-            $transaksi = Transaksi::find($request->id);
+            $transaksi = Transaksi::where('id_produk',$request->id)->first();
+        // $transaksi = Transaksi::findOrFail($request->id);
+
         return redirect('detail-transaksi/'.$transaksi->id);
+        // return redirect()->route('detail.transaksi', ['id' => $transaksi->id]);
+
     }
 
     public function detail_transaksi(Request $request){
         $data['transaksi'] = Transaksi::find($request->id);
         $data['harga'] = $data['transaksi']->harga;
-        $data['ongkir'] = 50000; it
+        $data['ongkir'] = 50000; 
         $data['total'] = $data['harga'] + $data['ongkir'];
         $data['nama_penerima'] = Auth::user(); 
 

@@ -121,7 +121,7 @@
         </div>
     </nav>
 
-    <div class="container mt-5" style="margin-top: 10%">
+    <div class="container mt-5" style="margin-top: 20%">
         <h1 class="mb-4 text-center">Detail Transaksi</h1>
 
         <div class="row">
