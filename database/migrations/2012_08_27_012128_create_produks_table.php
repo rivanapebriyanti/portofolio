@@ -14,21 +14,23 @@ return new class extends Migration
         Schema::create('produks', function (Blueprint $table) {
             $table->id();
             $table->string('nama',20);
-            // $table->string('kategori');
-            $table->integer('jumlah');
-            $table->integer('harga');
+            // $table->string('kategori')->nullable();
+            $table->integer('stok')->nullable();
+            $table->integer('harga')->nullable();
             $table->unsignedBigInteger('categories_id');
-            $table->foreign('categories_id')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('categories_id')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate()->nullable();
             $table->string('gambar')->nullable();
             
-            $table->unsignedBigInteger('id_user');
-            $table->string('nama_product');
-            $table->integer('harga');
-            $table->integer('stok');
-            $table->text('deskripsi');
-            $table->text('foto_product');
-            $table->string('kategori');
-            $table->foreign('id_user')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            // $table->unsignedBigInteger('id_user');
+            // // $table->string('nama');
+            // // $table->integer('harga');
+            // $table->integer('stok')->nullable();
+            // $table->text('deskripsi')->nullable();
+            // // $table->text('gambar');
+            // // $table->string('categorie');
+            // $table->foreign('id_user')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate()->nullable();
+
+
             $table->timestamps();
         });
     }

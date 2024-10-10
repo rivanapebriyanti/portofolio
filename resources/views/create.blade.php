@@ -71,9 +71,13 @@
                                     </select>
                                 </td>
                             </tr>
-                            <div class="form-group pt-2">
+                            {{-- <div class="form-group pt-2">
                                 <label for="quantity">Jumlah</label>
                                 <input type="number" name="jumlah" class="form-control" id="quantity" placeholder="Masukkan jumlah produk">
+                            </div> --}}
+                            <div class="form-group pt-2">
+                                <label for="quantity">Stok</label>
+                                <input type="number" name="stok" class="form-control" id="quantity" placeholder="Masukkan stok produk">
                             </div>
                             <div class="form-group pt-2">
                                 <label for="image">Gambar</label>

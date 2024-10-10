@@ -15,13 +15,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_produk');
             $table->unsignedBigInteger('id_user');
-            $table->text('alamat');
+            $table->integer('total');
             $table->string('nama_penerima');
-            $table->timestamp('tanggal_transaksi');
-            $table->text('note');
-            $table->enum('status',['packing','perjalanan','selesai'])->default('packing');
-            $table->foreign('id_user')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreign('id_produk')->references('id')->on('produks')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->decimal('harga',12, 2);
+            $table->text('alamat');
+            $table->text('note')->nullable();
+            $table->string('metode_pembayaran');
+            $table->foreign('id_user')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete()->nullable();
+            $table->foreign('id_produk')->references('id')->on('produks')->cascadeOnUpdate()->cascadeOnDelete()->nullable();
             $table->timestamps();
         });
     }

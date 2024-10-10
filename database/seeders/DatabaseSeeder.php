@@ -69,10 +69,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Produk::create([
-            'nama' => 'seblak',
+            'nama' => 'Kasur anak',
             'categories_id' => 2,
-            'jumlah' => '3',
-            'harga' => 10000,
+            'stok' => '200',
+            'harga' => 1500000,
             'gambar' => ''
         ]);
 

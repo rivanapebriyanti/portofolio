@@ -22,8 +22,10 @@ return new class extends Migration
             $table->bigInteger('nohp')->nullable();
             // $table->boolean('is_admin');
             $table->unsignedBigInteger('levels_id');
+            // $table->unsignedBigInteger('id_transaksi');
             // $table->unsignedBigInteger('categories_id');
-            $table->foreign('levels_id')->references('id')->on('levels')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('levels_id')->references('id')->on('levels')->cascadeOnDelete()->cascadeOnUpdate()->nullable();
+            // $table->foreign('id_transaksi')->references('id')->on('transaksis')->cascadeOnDelete()->cascadeOnUpdate()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

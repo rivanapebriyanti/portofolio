@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8))," style="margin-left: 20px">
-                    <h2 class="mb-5 text-white" style="margin-left: 50px; margin-top: 50px"><a href="/">LOGIN / </a><a href="/register"><span class="text-white">REGISTER</span></a></h2>
+                    <h2 class="mb-5 text-white" style="margin-left: 50px; margin-top: 50px; text-decoration-none"><a href="/"></a><span class="text-white"></span></a></h2>
                     <p class="mb-5 text-white" style="margin-left: 50px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, dolorum, doloribus sunt dicta, officia voluptatibus libero necessitatibus natus impedit quam ullam assumenda? Id atque iste consectetur. Commodi odit ab saepe!</p>
                     <p class="mb-5 text-white" style="margin-left: 50px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos voluptatem suscipit neque enim, doloribus ipsum rem eos distinctio, dignissimos nisi saepe nulla? Libero numquam perferendis provident placeat molestiae quia?</p>
                     <div class="row gy-2 gx-4 mb-4">

@@ -17,6 +17,7 @@ class ProdukController extends Controller
 
     public function dashboard(){
         $data['produk'] = Produk::orderBy('nama', 'asc')->get();
+        // $data['produk']=Produk::all();
         $data['categorie'] = Categorie::all();
         $data['total'] = $data['produk']->count();
         $data['pengguna'] = Auth::user()->name;
@@ -24,8 +25,8 @@ class ProdukController extends Controller
     }
 
     public function show(){
-        $data['produk'] = Produk::orderBy('nama', 'asc')->get();
-        // $data['produk'] = Produk::all();
+        // $data['produk'] = Produk::orderBy('nama', 'asc')->get();
+        $data['produk'] = Produk::all();
         $data['categorie'] = Categorie::all();
 
 
@@ -38,11 +39,11 @@ class ProdukController extends Controller
     //     return view ('home');
     // }
     // //
-    public function detail(Request $request)
+    public function detail($id)
     {
-        $data['produk'] = Produk::all();
+        // $data['produk'] = Produk::all();
         // $data['produk'] = Produk::orderBy('nama', 'asc')->get();
-        $data['produk'] = Produk::find($request->id);
+        $data['produk'] = Produk::find($id);
         // dd($data['produk']);
         return view('detail', $data);
     }
@@ -72,7 +73,7 @@ class ProdukController extends Controller
         $data['produk'] = Produk::all();
         $validasi = $request->validate([
             'nama' => ['required','min:3'],
-            'jumlah' => ['required'],
+            'stok' => ['required'],
             'harga' => ['required'],
             'categories_id' => 'required',
             'gambar' => 'image'
@@ -89,7 +90,7 @@ class ProdukController extends Controller
         $produk = Produk::create([
             'nama' => $request->nama,
             // 'kategori' => $request->kategori,
-            'jumlah' => $request->jumlah,
+            'stok' => $request->stok,
             'harga' => $request->harga,
             'categories_id' => $request->categories_id,
             'gambar' => $filename
@@ -128,7 +129,7 @@ class ProdukController extends Controller
         $validasi = $request->validate([
             'nama' => ['required','min:3'],
             // 'kategori' => ['required'],
-            'jumlah' => ['required'],
+            'stok' => ['required'],
             'harga' => ['required'],
             'categories_id' => 'required',
             'gambar' => 'image'
@@ -149,7 +150,7 @@ class ProdukController extends Controller
         $update = Produk::where('id', $id)->update([
             'nama' => $request->nama,
             // 'kategori' => $request->kategori,
-            'jumlah' => $request->jumlah,
+            'stok' => $request->stok,
             'harga' => $request->harga,
             'categories_id' => $request->categories_id,
             'gambar' => $filename
@@ -161,7 +162,7 @@ class ProdukController extends Controller
             $update = Produk::where('id', $id)->update([
             'nama' => $request->nama,
             // 'kategori' => $request->kategori,
-            'jumlah' => $request->jumlah,
+            'stok' => $request->stok,
             'harga' => $request->harga,
             'categories_id' => $request->categories_id,
             ]);
@@ -208,7 +209,7 @@ class ProdukController extends Controller
     public function search(Request $request){
         $data['produk']=Produk::where('nama', 'LIKE', '%'.$request->cari.'%')
         ->orWhere('categories_id', 'LIKE','%'.$request->cari.'%')
-        ->orWhere('jumlah', 'LIKE','%'.$request->cari.'%')
+        ->orWhere('stok', 'LIKE','%'.$request->cari.'%')
         ->orWhere('harga', 'LIKE','%'.$request->cari.'%')->get();
 
         $data['total']=$data['produk']->count();

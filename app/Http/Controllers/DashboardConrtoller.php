@@ -24,8 +24,8 @@ class DashboardConrtoller extends Controller
 
 
 
-    // public function best(){
-    //     $data['user'] = User::orderby('name', 'desc')->get();
-    //     return view('best',$data);
-    // }
+    public function kontak(){
+        // $data['konta'] = User::orderby('name', 'desc')->get();
+        return view('kontak');
+    }
 }

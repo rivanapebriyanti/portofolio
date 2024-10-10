@@ -43,10 +43,12 @@ class User extends Authenticatable
         return $this->hasMany(Produk::class,'id_user');
     }
 
-    public function transaksi()
-    {
-        return $this->hasMany(Transaksi::class, 'id_user');
-    }
+   
+
+    // public function transaksi()
+    // {
+    //     return $this->hasMany(Transaksi::class, 'id_user');
+    // }
 
     /**
      * The attributes that should be cast.
